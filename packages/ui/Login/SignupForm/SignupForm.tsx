@@ -37,6 +37,7 @@ export default function SignupForm() {
     //Makes sure the passwords are not empty
     if (form.password.length !== 0 && form.confirmpass.length !== 0) {
       setError("Please enter a valid password.");
+      return;
     }
 
     //Makes sure the username is longer then 2 characters
