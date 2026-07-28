@@ -1,7 +1,12 @@
-export default function SignupPage(){
-    return (
-        <div>
-            <p>Signup Page</p>
-        </div>
-    );
+import SignupForm from "@/../packages/ui/Login/SignupForm/SignupForm";
+import styles from "./page.module.css";
+
+export default function Signup() {
+  return (
+    <div className={styles.divStyle}>
+      <div className={styles.loginDiv}>
+        <SignupForm />
+      </div>
+    </div>
+  );
 }

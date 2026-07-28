@@ -1,0 +1,22 @@
+.divStyle {
+    display: flex;
+    justify-content: flex-end;
+
+    height: 100%;
+
+    /*Left side gradiant*/
+    /* background: linear-gradient(-135deg, #EA4329,#441d17);  */
+    
+    /*Right side gradiant*/
+    background: linear-gradient(-135deg, #441d17,  #EA4329 );
+
+    .loginDiv {
+        width: 45%;
+        background-color: #111111;
+        height: 100%;
+        display: flex;
+        
+        justify-content: center;
+        align-items: center;
+    }
+}
