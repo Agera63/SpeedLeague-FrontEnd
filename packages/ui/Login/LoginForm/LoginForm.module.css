@@ -118,4 +118,14 @@
             color: #EA4329;
         }
     }
+
+    .errorMsg{
+        display: flex;
+        justify-content: center;
+        
+        margin-top: 1.5em;
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #ff0000;
+    }
 }
