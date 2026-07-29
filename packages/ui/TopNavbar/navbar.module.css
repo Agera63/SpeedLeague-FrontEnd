@@ -11,6 +11,7 @@
     
     .gameName{
         color: #EA4329;
+        font-weight: bold;
     }
     
     /* Logged in username div */

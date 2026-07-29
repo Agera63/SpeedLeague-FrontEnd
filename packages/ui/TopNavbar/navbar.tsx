@@ -1,11 +1,20 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./navbar.module.css";
 
 export default function Navbar({ pageName }: { pageName: string }) {
+  const [token, setToken] = useState<string | null>(null);
+  const [username, setUsername] = useState<string | null>(null);
+
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+    setUsername(localStorage.getItem("username"));
+  }, []);
+
   return (
     <div>
       <ul className={styles.layoutUl}>
@@ -13,7 +22,7 @@ export default function Navbar({ pageName }: { pageName: string }) {
         <li className={styles.gameName}>Speed League</li>
         <li>
           <div>
-            {localStorage?.getItem("token") !== null ? (
+            {token !== null ? (
               <Link href={"/"} className={styles.loggedUser}>
                 <Image
                   src="/svg/user_icon.svg"
@@ -21,7 +30,7 @@ export default function Navbar({ pageName }: { pageName: string }) {
                   width={40}
                   height={40}
                 />
-                <p>{localStorage.getItem("username")}</p>
+                <p>{username}</p>
               </Link>
             ) : (
               <Link href="/login">Login</Link>
