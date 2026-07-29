@@ -7,7 +7,7 @@
     /*Right side gradiant*/
     background: linear-gradient(-135deg, #441d17,  #EA4329 );
 
-    .loginDiv {
+    .signupDiv {
         width: 45%;
         background-color: #111111;
         height: 100%;

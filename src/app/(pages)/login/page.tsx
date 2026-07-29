@@ -1,4 +1,4 @@
-import LoginForm from "../../../../packages/ui/Login/LoginForm/LoginForm";
+import LoginForm from "@/../packages/ui/LoginForm/LoginForm";
 import styles from "./page.module.css";
 
 export default function Login() {

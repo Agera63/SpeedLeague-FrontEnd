@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
-import styles from "@/../packages/ui/Login/LoginForm/LoginForm.module.css";
+import styles from "./LoginForm.module.css";
 import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
