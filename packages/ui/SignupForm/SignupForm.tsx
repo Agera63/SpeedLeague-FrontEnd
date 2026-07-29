@@ -3,9 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import styles from "./SignupForm.module.css";
-import { useRouter } from "next/navigation";
+
+import { ApiError, UserService } from "../../api";
 
 export default function SignupForm() {
   const router = useRouter();
@@ -28,6 +30,11 @@ export default function SignupForm() {
   const submitForm = async (e) => {
     e.preventDefault();
 
+    if (form.username === "" || form.password === "") {
+      setError("Please fill in the blank field!");
+      return;
+    }
+
     //Makes sure that the password are identical
     if (form.password !== form.confirmpass) {
       setError("Passwords do not match!");
@@ -35,7 +42,7 @@ export default function SignupForm() {
     }
 
     //Makes sure the passwords are not empty
-    if (form.password.length !== 0 && form.confirmpass.length !== 0) {
+    if (form.password.length === 0 && form.confirmpass.length === 0) {
       setError("Please enter a valid password.");
       return;
     }
@@ -54,39 +61,21 @@ export default function SignupForm() {
 
     try {
       setError("");
-      const response = await fetch("http://localhost:8080/api/User", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: form.username,
-          password: form.password,
-          role: 1,
-        }),
+      const response = await UserService.createUser({
+        username: form.username,
+        password: form.password,
+        role: 1,
       });
-
-      if (!response.ok) {
-        //check if the username and passowrd field are filled before changing the error
-        if (form.username === "" || form.password === "") {
-          setError("Please fill in the blank field!");
-        }
-        //Checks the status to make sure the username does not already exist
-        if (response.status === 409) {
-          setError(`\'${form.username}\' username has already been taken!`);
-        } else {
-          const errorData = await response.json().catch(() => null);
-          console.error("signup failed:", response.status, errorData);
-          setError("Unexpected error!");
-        }
-        return;
-      }
 
       //Push back to "main page"
       router.push("/login");
     } catch (error) {
-      console.error("Network or unexpected error:", error);
-      setError("Network or unexpected error!");
+      if (error instanceof ApiError) {
+        setError(error.body?.message);
+      } else {
+        console.error("Network or unexpected error:", error);
+        setError("Network or unexpected error!");
+      }
     }
   };
 

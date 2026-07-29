@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import styles from "./LoginForm.module.css";
 import { useRouter } from "next/navigation";
+import { AuthService, LoginResponseModel } from "../../api";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -27,35 +28,25 @@ export default function LoginForm() {
   const submitForm = async (e) => {
     e.preventDefault();
 
+    //check if the username and passowrd field are filled before changing the error
+    if (form.username === "" || form.password === "") {
+      setError("Please fill in the blank field!");
+      return;
+    }
+
     try {
       setError("");
-      const response = await fetch("http://localhost:8080/api/Auth/Login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userName: form.username,
-          password: form.password,
-        }),
-      });
 
-      if (!response.ok) {
-        //check if the username and passowrd field are filled before changing the error
-        if (form.username === "" || form.password === "") {
-          setError("Please fill in the blank field!");
-        } else {
-          const errorData = await response.json().catch(() => null);
-          console.error("Login failed:", response.status, errorData);
-          setError("Incorrect username or password!");
-        }
-        return;
+      const response: LoginResponseModel = await AuthService.login(form);
+
+      if (!response.accessToken) {
+        setError("Incorrect username or password!");
+        throw new Error("Login succeeded but no access token was returned");
       }
 
       // Store the token so future requests can use it
-      const data = await response.json();
-      localStorage.setItem("token", data.accessToken);
-      localStorage.setItem("username", data.userName);
+      localStorage.setItem("token", response.accessToken!);
+      localStorage.setItem("username", response.userName!);
 
       //Push back to "main page"
       router.push("/");
