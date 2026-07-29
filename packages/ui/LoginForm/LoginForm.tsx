@@ -55,6 +55,7 @@ export default function LoginForm() {
       // Store the token so future requests can use it
       const data = await response.json();
       localStorage.setItem("token", data.accessToken);
+      localStorage.setItem("username", data.userName);
 
       //Push back to "main page"
       router.push("/");
