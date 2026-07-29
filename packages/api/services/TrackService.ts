@@ -12,7 +12,7 @@ export class TrackService {
      * @returns any OK
      * @throws ApiError
      */
-    public static getApiTrack(): CancelablePromise<any> {
+    public static getAllTracks(): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Track',
@@ -23,7 +23,7 @@ export class TrackService {
      * @returns any OK
      * @throws ApiError
      */
-    public static postApiTrack(
+    public static createTrack(
         requestBody: AddTrackRequestDTO,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
@@ -38,7 +38,7 @@ export class TrackService {
      * @returns any OK
      * @throws ApiError
      */
-    public static getApiTrack1(
+    public static getTrackById(
         id: string,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
@@ -55,7 +55,7 @@ export class TrackService {
      * @returns any OK
      * @throws ApiError
      */
-    public static putApiTrack(
+    public static updateTrack(
         id: string,
         requestBody: UpdateTrackRequestDTO,
     ): CancelablePromise<any> {
@@ -74,7 +74,7 @@ export class TrackService {
      * @returns any OK
      * @throws ApiError
      */
-    public static deleteApiTrack(
+    public static deleteTrack(
         id: string,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {

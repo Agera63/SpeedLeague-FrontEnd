@@ -12,7 +12,7 @@ export class TimeService {
      * @returns any OK
      * @throws ApiError
      */
-    public static getApiTime(): CancelablePromise<any> {
+    public static getAllTimes(): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Time',
@@ -23,7 +23,7 @@ export class TimeService {
      * @returns any OK
      * @throws ApiError
      */
-    public static postApiTime(
+    public static createTime(
         requestBody: AddTimeRequestDTO,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
@@ -38,7 +38,7 @@ export class TimeService {
      * @returns any OK
      * @throws ApiError
      */
-    public static getApiTime1(
+    public static getTimeById(
         id: string,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
@@ -55,7 +55,7 @@ export class TimeService {
      * @returns any OK
      * @throws ApiError
      */
-    public static putApiTime(
+    public static updateTime(
         id: string,
         requestBody: UpdateTimeRequestDTO,
     ): CancelablePromise<any> {
@@ -74,7 +74,7 @@ export class TimeService {
      * @returns any OK
      * @throws ApiError
      */
-    public static deleteApiTime(
+    public static deleteTime(
         id: string,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
@@ -91,7 +91,7 @@ export class TimeService {
      * @returns any OK
      * @throws ApiError
      */
-    public static getApiTimeCar(
+    public static getTimeByCarId(
         id: string,
         carId?: string,
     ): CancelablePromise<any> {
@@ -112,7 +112,7 @@ export class TimeService {
      * @returns any OK
      * @throws ApiError
      */
-    public static getApiTimeTrack(
+    public static getTimeByTrackId(
         id: string,
         trackId?: string,
     ): CancelablePromise<any> {
@@ -133,7 +133,7 @@ export class TimeService {
      * @returns any OK
      * @throws ApiError
      */
-    public static getApiTimeUser(
+    public static getTimeByUserId(
         id: string,
         userId?: string,
     ): CancelablePromise<any> {

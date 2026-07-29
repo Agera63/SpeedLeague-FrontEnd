@@ -13,7 +13,7 @@ export class AuthService {
      * @returns LoginResponseModel OK
      * @throws ApiError
      */
-    public static postApiAuthLogin(
+    public static login(
         requestBody: LoginRequestModel,
     ): CancelablePromise<LoginResponseModel> {
         return __request(OpenAPI, {

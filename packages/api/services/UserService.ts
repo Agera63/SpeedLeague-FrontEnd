@@ -12,7 +12,7 @@ export class UserService {
      * @returns any OK
      * @throws ApiError
      */
-    public static getApiUser(): CancelablePromise<any> {
+    public static getAllUsers(): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/User',
@@ -23,7 +23,7 @@ export class UserService {
      * @returns any OK
      * @throws ApiError
      */
-    public static postApiUser(
+    public static createUser(
         requestBody: AddUserRequestDTO,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
@@ -38,7 +38,7 @@ export class UserService {
      * @returns any OK
      * @throws ApiError
      */
-    public static getApiUser1(
+    public static getUserById(
         id: string,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
@@ -55,7 +55,7 @@ export class UserService {
      * @returns any OK
      * @throws ApiError
      */
-    public static putApiUser(
+    public static updateUser(
         id: string,
         requestBody: UpdateUserRequestDTO,
     ): CancelablePromise<any> {
@@ -74,7 +74,7 @@ export class UserService {
      * @returns any OK
      * @throws ApiError
      */
-    public static deleteApiUser(
+    public static deleteUser(
         id: string,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {

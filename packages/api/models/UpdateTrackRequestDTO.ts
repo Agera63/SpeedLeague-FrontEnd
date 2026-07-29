@@ -4,5 +4,6 @@
 /* eslint-disable */
 export type UpdateTrackRequestDTO = {
     name: string;
+    country: string;
 };
 

@@ -12,7 +12,7 @@ export class CarService {
      * @returns any OK
      * @throws ApiError
      */
-    public static getApiCar(): CancelablePromise<any> {
+    public static getAllCar(): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Car',
@@ -23,7 +23,7 @@ export class CarService {
      * @returns any OK
      * @throws ApiError
      */
-    public static postApiCar(
+    public static createCar(
         requestBody: AddCarRequestDTO,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
@@ -38,7 +38,7 @@ export class CarService {
      * @returns any OK
      * @throws ApiError
      */
-    public static getApiCar1(
+    public static getCarById(
         id: string,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
@@ -55,7 +55,7 @@ export class CarService {
      * @returns any OK
      * @throws ApiError
      */
-    public static putApiCar(
+    public static updateCar(
         id: string,
         requestBody: UpdateCarRequestDTO,
     ): CancelablePromise<any> {
@@ -74,7 +74,7 @@ export class CarService {
      * @returns any OK
      * @throws ApiError
      */
-    public static deleteApiCar(
+    public static deleteCar(
         id: string,
     ): CancelablePromise<any> {
         return __request(OpenAPI, {
