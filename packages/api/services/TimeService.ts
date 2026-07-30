@@ -87,64 +87,49 @@ export class TimeService {
         });
     }
     /**
-     * @param id
      * @param carId
      * @returns TimeResponseDTO OK
      * @throws ApiError
      */
     public static getTimeByCarId(
-        id: string,
-        carId?: string,
+        carId: string,
     ): CancelablePromise<Array<TimeResponseDTO>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/api/Time/car/{id}',
+            url: '/api/Time/car/{carId}',
             path: {
-                'id': id,
-            },
-            query: {
                 'carId': carId,
             },
         });
     }
     /**
-     * @param id
      * @param trackId
      * @returns TimeResponseDTO OK
      * @throws ApiError
      */
     public static getTimeByTrackId(
-        id: string,
-        trackId?: string,
+        trackId: string,
     ): CancelablePromise<Array<TimeResponseDTO>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/api/Time/track/{id}',
+            url: '/api/Time/track/{trackId}',
             path: {
-                'id': id,
-            },
-            query: {
                 'trackId': trackId,
             },
         });
     }
     /**
-     * @param id
      * @param userId
      * @returns TimeResponseDTO OK
      * @throws ApiError
      */
     public static getTimeByUserId(
-        id: string,
-        userId?: string,
+        userId: string,
     ): CancelablePromise<Array<TimeResponseDTO>> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/api/Time/user/{id}',
+            url: '/api/Time/user/{userId}',
             path: {
-                'id': id,
-            },
-            query: {
                 'userId': userId,
             },
         });

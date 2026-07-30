@@ -5,6 +5,7 @@
 export type TimeResponseDTO = {
     timeId: string;
     timeMs: any;
+    runAt: string;
     userId?: string;
     trackId?: string;
     carId?: string;
