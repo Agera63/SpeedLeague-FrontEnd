@@ -14,12 +14,93 @@
         font-weight: bold;
     }
     
-    /* Logged in username div */
-    .loggedUser{
-        display: flex;
-        align-items: center;
-        gap: 10px;
+    .dropdown{
+        position: relative;
+        width: 140px;
 
-        font-size: 28px;
+        button{
+            transition: 0.5s;
+            width: 17.5vh;
+            text-align: right;
+            padding: 10px 12px;
+            border: 0 solid transparent;
+            background-color: transparent;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        button:hover{
+            transition: 0.5s;
+            background-color: rgb(34, 34, 34);
+        }
+
+        /* Logged in username div */
+        .loggedUser{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 28px;
+        }
+
+        .menu {
+            position: absolute;
+            top: 110%;
+            left: 0;
+            width: 160px;
+            background-color: rgb(34, 34, 34);
+            border: 1px solid #EA4329;
+            border-radius: 6px;
+            padding: 6px 0;
+
+            display: none;
+
+            li {
+                transition: 0.5s;
+
+                display: flex;
+                justify-content: center;
+
+                list-style: none;
+                padding : 10px 14px;
+                cursor: pointer;
+                font-size: 14px;
+            }
+
+            li:hover {
+                transition: 0.5s;
+                background-color: rgb(59, 59, 59);
+            }
+
+            .dropdownLink{
+                display: flex;
+                justify-content: center;
+
+                width: 100%;
+                height: 100%;
+            }
+
+            .logout {
+                button {
+                    color: #EA4329;
+                    width: 100%;
+                    height: 0;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    background-color: transparent;
+                    border: none;
+                }
+            }
+        }
     }
+
+    .dropdown:focus-within .menu{
+        display: block;
+    }
+
+
 }

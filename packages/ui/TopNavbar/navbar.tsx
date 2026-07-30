@@ -15,6 +15,15 @@ export default function Navbar({ pageName }: { pageName: string }) {
     setUsername(localStorage.getItem("username"));
   }, []);
 
+  const onLogout = () => {
+    //Removes the stored information
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+
+    //refreshes the page so the UI can update
+    window.location.reload();
+  };
+
   return (
     <div>
       <ul className={styles.layoutUl}>
@@ -23,15 +32,33 @@ export default function Navbar({ pageName }: { pageName: string }) {
         <li>
           <div>
             {token !== null ? (
-              <Link href={"/"} className={styles.loggedUser}>
-                <Image
-                  src="/svg/user_icon.svg"
-                  alt="Logged in user icon"
-                  width={40}
-                  height={40}
-                />
-                <p>{username}</p>
-              </Link>
+              <div className={styles.dropdown}>
+                <button className={styles.loggedUser}>
+                  <Image
+                    src="/svg/user_icon.svg"
+                    alt="Logged in user icon"
+                    width={40}
+                    height={40}
+                  />
+                  <p>{username}</p>
+                </button>
+
+                <ul className={styles.menu}>
+                  <li>
+                    <Link href={"/Stats"} className={styles.dropdownLink}>
+                      Stats
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={"/Stats"} className={styles.dropdownLink}>
+                      Settings
+                    </Link>
+                  </li>
+                  <li className={styles.logout} onClick={onLogout}>
+                    <button onClick={onLogout}>Logout</button>
+                  </li>
+                </ul>
+              </div>
             ) : (
               <Link href="/login">Login</Link>
             )}
