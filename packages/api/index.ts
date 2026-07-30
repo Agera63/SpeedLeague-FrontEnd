@@ -11,13 +11,17 @@ export type { AddCarRequestDTO } from './models/AddCarRequestDTO';
 export type { AddTimeRequestDTO } from './models/AddTimeRequestDTO';
 export type { AddTrackRequestDTO } from './models/AddTrackRequestDTO';
 export type { AddUserRequestDTO } from './models/AddUserRequestDTO';
+export type { CarResponseDTO } from './models/CarResponseDTO';
 export type { LoginRequestModel } from './models/LoginRequestModel';
 export type { LoginResponseModel } from './models/LoginResponseModel';
 export type { Role } from './models/Role';
+export type { TimeResponseDTO } from './models/TimeResponseDTO';
+export type { TrackResponseDTO } from './models/TrackResponseDTO';
 export type { UpdateCarRequestDTO } from './models/UpdateCarRequestDTO';
 export type { UpdateTimeRequestDTO } from './models/UpdateTimeRequestDTO';
 export type { UpdateTrackRequestDTO } from './models/UpdateTrackRequestDTO';
 export type { UpdateUserRequestDTO } from './models/UpdateUserRequestDTO';
+export type { UserResponseDTO } from './models/UserResponseDTO';
 
 export { AuthService } from './services/AuthService';
 export { CarService } from './services/CarService';

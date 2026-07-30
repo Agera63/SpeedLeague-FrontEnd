@@ -3,16 +3,17 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { AddCarRequestDTO } from '../models/AddCarRequestDTO';
+import type { CarResponseDTO } from '../models/CarResponseDTO';
 import type { UpdateCarRequestDTO } from '../models/UpdateCarRequestDTO';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
 export class CarService {
     /**
-     * @returns any OK
+     * @returns CarResponseDTO OK
      * @throws ApiError
      */
-    public static getAllCar(): CancelablePromise<any> {
+    public static getAllCar(): CancelablePromise<Array<CarResponseDTO>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Car',
@@ -20,12 +21,12 @@ export class CarService {
     }
     /**
      * @param requestBody
-     * @returns any OK
+     * @returns CarResponseDTO OK
      * @throws ApiError
      */
     public static createCar(
         requestBody: AddCarRequestDTO,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<CarResponseDTO> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/Car',
@@ -35,12 +36,12 @@ export class CarService {
     }
     /**
      * @param id
-     * @returns any OK
+     * @returns CarResponseDTO OK
      * @throws ApiError
      */
     public static getCarById(
         id: string,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<CarResponseDTO> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Car/{id}',
@@ -52,13 +53,13 @@ export class CarService {
     /**
      * @param id
      * @param requestBody
-     * @returns any OK
+     * @returns CarResponseDTO OK
      * @throws ApiError
      */
     public static updateCar(
         id: string,
         requestBody: UpdateCarRequestDTO,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<CarResponseDTO> {
         return __request(OpenAPI, {
             method: 'PUT',
             url: '/api/Car/{id}',
@@ -71,12 +72,12 @@ export class CarService {
     }
     /**
      * @param id
-     * @returns any OK
+     * @returns CarResponseDTO OK
      * @throws ApiError
      */
     public static deleteCar(
         id: string,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<CarResponseDTO> {
         return __request(OpenAPI, {
             method: 'DELETE',
             url: '/api/Car/{id}',

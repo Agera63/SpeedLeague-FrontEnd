@@ -4,15 +4,16 @@
 /* eslint-disable */
 import type { AddUserRequestDTO } from '../models/AddUserRequestDTO';
 import type { UpdateUserRequestDTO } from '../models/UpdateUserRequestDTO';
+import type { UserResponseDTO } from '../models/UserResponseDTO';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
 export class UserService {
     /**
-     * @returns any OK
+     * @returns UserResponseDTO OK
      * @throws ApiError
      */
-    public static getAllUsers(): CancelablePromise<any> {
+    public static getAllUsers(): CancelablePromise<Array<UserResponseDTO>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/User',
@@ -20,12 +21,12 @@ export class UserService {
     }
     /**
      * @param requestBody
-     * @returns any OK
+     * @returns UserResponseDTO OK
      * @throws ApiError
      */
     public static createUser(
         requestBody: AddUserRequestDTO,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<UserResponseDTO> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/User',
@@ -35,12 +36,12 @@ export class UserService {
     }
     /**
      * @param id
-     * @returns any OK
+     * @returns UserResponseDTO OK
      * @throws ApiError
      */
     public static getUserById(
         id: string,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<UserResponseDTO> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/User/{id}',
@@ -52,13 +53,13 @@ export class UserService {
     /**
      * @param id
      * @param requestBody
-     * @returns any OK
+     * @returns UserResponseDTO OK
      * @throws ApiError
      */
     public static updateUser(
         id: string,
         requestBody: UpdateUserRequestDTO,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<UserResponseDTO> {
         return __request(OpenAPI, {
             method: 'PUT',
             url: '/api/User/{id}',
@@ -71,12 +72,12 @@ export class UserService {
     }
     /**
      * @param id
-     * @returns any OK
+     * @returns UserResponseDTO OK
      * @throws ApiError
      */
     public static deleteUser(
         id: string,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<UserResponseDTO> {
         return __request(OpenAPI, {
             method: 'DELETE',
             url: '/api/User/{id}',

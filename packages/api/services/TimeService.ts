@@ -3,16 +3,17 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { AddTimeRequestDTO } from '../models/AddTimeRequestDTO';
+import type { TimeResponseDTO } from '../models/TimeResponseDTO';
 import type { UpdateTimeRequestDTO } from '../models/UpdateTimeRequestDTO';
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
 export class TimeService {
     /**
-     * @returns any OK
+     * @returns TimeResponseDTO OK
      * @throws ApiError
      */
-    public static getAllTimes(): CancelablePromise<any> {
+    public static getAllTimes(): CancelablePromise<Array<TimeResponseDTO>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Time',
@@ -20,12 +21,12 @@ export class TimeService {
     }
     /**
      * @param requestBody
-     * @returns any OK
+     * @returns TimeResponseDTO OK
      * @throws ApiError
      */
     public static createTime(
         requestBody: AddTimeRequestDTO,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<TimeResponseDTO> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/Time',
@@ -35,12 +36,12 @@ export class TimeService {
     }
     /**
      * @param id
-     * @returns any OK
+     * @returns TimeResponseDTO OK
      * @throws ApiError
      */
     public static getTimeById(
         id: string,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<TimeResponseDTO> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Time/{id}',
@@ -52,13 +53,13 @@ export class TimeService {
     /**
      * @param id
      * @param requestBody
-     * @returns any OK
+     * @returns TimeResponseDTO OK
      * @throws ApiError
      */
     public static updateTime(
         id: string,
         requestBody: UpdateTimeRequestDTO,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<TimeResponseDTO> {
         return __request(OpenAPI, {
             method: 'PUT',
             url: '/api/Time/{id}',
@@ -71,12 +72,12 @@ export class TimeService {
     }
     /**
      * @param id
-     * @returns any OK
+     * @returns TimeResponseDTO OK
      * @throws ApiError
      */
     public static deleteTime(
         id: string,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<TimeResponseDTO> {
         return __request(OpenAPI, {
             method: 'DELETE',
             url: '/api/Time/{id}',
@@ -88,13 +89,13 @@ export class TimeService {
     /**
      * @param id
      * @param carId
-     * @returns any OK
+     * @returns TimeResponseDTO OK
      * @throws ApiError
      */
     public static getTimeByCarId(
         id: string,
         carId?: string,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<Array<TimeResponseDTO>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Time/car/{id}',
@@ -109,13 +110,13 @@ export class TimeService {
     /**
      * @param id
      * @param trackId
-     * @returns any OK
+     * @returns TimeResponseDTO OK
      * @throws ApiError
      */
     public static getTimeByTrackId(
         id: string,
         trackId?: string,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<Array<TimeResponseDTO>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Time/track/{id}',
@@ -130,13 +131,13 @@ export class TimeService {
     /**
      * @param id
      * @param userId
-     * @returns any OK
+     * @returns TimeResponseDTO OK
      * @throws ApiError
      */
     public static getTimeByUserId(
         id: string,
         userId?: string,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<Array<TimeResponseDTO>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Time/user/{id}',
