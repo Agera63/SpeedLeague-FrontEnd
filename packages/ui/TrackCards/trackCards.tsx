@@ -5,29 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./trackCards.module.css";
-
-type Track = {
-  trackId: string;
-  name: string;
-  times: [];
-};
+import { TrackResponseDTO, TrackService } from "../../api";
 
 export default function TrackCards() {
-  const [trackList, setTrackList] = useState<Track[]>([]);
+  const [trackList, setTrackList] = useState<TrackResponseDTO[]>([]);
 
   useEffect(() => {
     async function getTracks() {
-      const response = await fetch("http://localhost:8080/api/Track", {
-        headers: {
-          Authorization: "Bearer YOUR_SECRET_TOKEN",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error(`Request failed: ${response.status}`);
-      }
-
-      const data: Track[] = await response.json();
+      const data = await TrackService.getAllTracks();
       setTrackList(data);
     }
 
@@ -38,7 +23,7 @@ export default function TrackCards() {
     <ul className={styles.accordion}>
       {trackList.map((track) => (
         <li key={track.trackId}>
-          <Link href={`/tracks/${track.trackId}`} className={styles.link}>
+          <Link href={`/tracks/${track.name}`} className={styles.link}>
             <Image
               className={styles.img}
               src={`/jpg/${track.name}.jpg`}
@@ -50,7 +35,7 @@ export default function TrackCards() {
             <div className={styles.content}>
               <span>
                 <h2>{track.name}</h2>
-                <p>...</p>
+                <p>{track.country}</p>
               </span>
             </div>
           </Link>

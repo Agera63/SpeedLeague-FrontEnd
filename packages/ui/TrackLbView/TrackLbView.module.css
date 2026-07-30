@@ -1,0 +1,47 @@
+.globalDiv{
+    margin: 0 2em ;
+
+    .navigationText{
+        display: flex;
+        align-items: center;
+        gap : 15px;
+
+        padding: 1.75em 0;
+        
+        .navTrack{
+            color: #A9A9A9;
+            font-size: 32px;
+        }
+
+        .navTrackName{
+            color: #EA4329;
+            font-size: 32px;
+        }
+    }
+
+    .contentDiv{
+        display: flex;
+        justify-content: space-between;
+
+        .leftDiv{
+            .trackTitle{
+                font-size: 128px;
+            }
+
+            .locationText{
+                font-size: 32px;
+                color: #808080;
+            }
+        }
+
+        .rightDiv{
+            .trackRecords{
+                display: flex;
+                justify-content: flex-end;
+                font-size: 96px;
+                
+            }
+        } 
+    }
+}
+

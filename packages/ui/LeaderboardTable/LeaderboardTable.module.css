@@ -1,0 +1,86 @@
+.tableWrapper{
+    max-height: 65vh;
+    min-width: 140vh;
+    overflow-y: auto;
+
+    /* Removing scrollbar on leaderboard */
+    /* Firefox */
+    scrollbar-width: none;
+
+    /* IE/Edge legacy */
+    -ms-overflow-style: none;
+
+    /* Chrome, Safari, Opera */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .rootTable{
+        width: 100%;
+
+        box-sizing: border-box;
+        overflow: hidden;
+
+        
+        .noAttemptMsg{
+            display: flex;
+            justify-content: flex-end;
+
+
+            font-size: 3em;
+            color: #A9A9A9;
+            font-weight: bold;
+        }
+
+        .rowContent{
+            font-size: 1.5em;
+
+            .lbNum{
+                padding-right: 1.5em;
+                padding-bottom: 0.8em;
+            }
+
+            .time{
+                padding-right: 5em;
+                padding-bottom: 0.8em;
+
+                p{
+                    color: #EA4329;
+                    font-weight: bold;
+                }
+            }
+
+        .user {
+            padding-right: 7.5em;
+            padding-bottom: 0.8em;
+            
+            .rankGold {
+                color: #FFD700;
+                }
+
+            .rankSilver {
+                color: #C0C0C0;
+                }
+
+            .rankBronze {
+                color: #CD7F32;
+                }
+        }
+
+            .car{
+                display: flex;
+                justify-content: flex-end;
+
+                padding-right: 7.5em;
+                padding-bottom: 0.8em;
+            }
+
+            .date{
+                padding-bottom: 0.8em;
+                p{
+                    color: #A9A9A9;
+                }
+            }
+        }
+    }
+}
