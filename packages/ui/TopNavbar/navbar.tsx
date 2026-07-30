@@ -45,13 +45,18 @@ export default function Navbar({ pageName }: { pageName: string }) {
 
                 <ul className={styles.menu}>
                   <li>
+                    <Link href={"/"} className={styles.dropdownLink}>
+                      Home
+                    </Link>
+                  </li>
+                  <li>
                     <Link href={"/Stats"} className={styles.dropdownLink}>
                       Stats
                     </Link>
                   </li>
                   <li>
-                    <Link href={"/Stats"} className={styles.dropdownLink}>
-                      Settings
+                    <Link href={"/tracks"} className={styles.dropdownLink}>
+                      Tracks
                     </Link>
                   </li>
                   <li className={styles.logout} onClick={onLogout}>
