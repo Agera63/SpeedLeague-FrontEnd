@@ -1,0 +1,106 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
+  max-width: 640px;
+  padding: 4vh 2em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5em;
+}
+
+.eyebrow {
+  font-size: 1em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #999;
+  margin: 0;
+}
+
+.heading {
+  font-size: clamp(3.5em, 10vw, 7em);
+  font-weight: 700;
+  color: #ea4329;
+  line-height: 1;
+  margin: 0.1em 0 0 0;
+}
+
+.laneMarker {
+  width: 240px;
+  height: 4px;
+  margin: 0.75em 0 1em 0;
+  background-image: repeating-linear-gradient(
+    to right,
+    #fff 0,
+    #fff 24px,
+    transparent 24px,
+    transparent 48px
+  );
+  opacity: 0.5;
+}
+
+.subtext {
+  font-size: 1.25em;
+  line-height: 1.6;
+  color: #ccc;
+  max-width: 42ch;
+  margin: 0 0 1em 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 0.5em;
+}
+
+.btnFilled,
+.btnOutline {
+  font-size: 1.5em;
+  padding: 0.6em 1.3em;
+  border-radius: 1.4em;
+  transition: 0.3s;
+}
+
+.btnFilled {
+  background-color: #ea4329;
+  color: #111;
+  border: 2px solid #ea4329;
+}
+
+.btnFilled:hover {
+  background-color: transparent;
+  color: #ea4329;
+}
+
+.btnOutline {
+  color: #ea4329;
+  border: 2px solid #ea4329;
+  background-color: transparent;
+}
+
+.btnOutline:hover {
+  background-color: #ea4329;
+  color: #111;
+}
+
+@media (max-width: 480px) {
+  .subtext {
+    font-size: 1em;
+  }
+
+  .btnFilled,
+  .btnOutline {
+    font-size: 1.1em;
+    padding: 0.5em 1em;
+  }
+}
