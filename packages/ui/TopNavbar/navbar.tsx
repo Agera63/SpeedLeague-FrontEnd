@@ -51,11 +51,6 @@ export default function Navbar({ pageName }: { pageName: string }) {
                     </Link>
                   </li>
                   <li>
-                    <Link href={"/Stats"} className={styles.dropdownLink}>
-                      Stats
-                    </Link>
-                  </li>
-                  <li>
                     <Link href={"/tracks"} className={styles.dropdownLink}>
                       Tracks
                     </Link>
