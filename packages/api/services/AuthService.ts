@@ -23,4 +23,14 @@ export class AuthService {
             mediaType: 'application/json',
         });
     }
+    /**
+     * @returns any OK
+     * @throws ApiError
+     */
+    public static validate(): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/api/Auth/Validate',
+        });
+    }
 }

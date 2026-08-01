@@ -1,3 +1,4 @@
+import { builtinModules } from "module";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -6,3 +7,11 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+module.exports = {
+  logging: {
+    fethces: {
+      fullUrl : true,
+    }
+  }
+}

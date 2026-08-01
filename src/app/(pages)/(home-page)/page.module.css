@@ -1,0 +1,79 @@
+.mainHeader{
+    height: 100%;
+
+    .heroSection{
+        height: 70vh;
+        margin-top: 1em;
+        margin-bottom: 1em;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 2em;
+        h1{
+            font-size: 5em;
+            color: #EA4329;
+        } 
+
+        h4{
+            font-size: 2.5em;
+            padding: 0.25em 0;
+        }
+
+        p{
+            font-size: 1em;
+        }
+    }
+
+    .trackContainer{
+        display: flex;
+        justify-content: center;
+
+
+        .boxContainer{
+            width: 50%;
+            min-height: 25vh;
+            
+            border-radius: 30px;
+            background-color: #222;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            padding: 2.5vh;
+            margin-bottom: 10vh;
+
+            h4 {
+                font-size: 2.5em;
+                padding: 0.5em 0 0.75em 0;
+            }
+
+            p {
+                align-items: center;
+                padding: 1em 1.5em ;
+                font-size: 1.5em;
+
+                line-height: 1.5;
+            }
+
+            div {
+                margin : 1.5em;
+                
+                .trackBtn {
+                    font-size: 2em;
+
+                    margin:  0 1em;
+                    padding: 0.75em 1.5em;
+                    color: #EA4329;
+
+                    border: 2px solid #EA4329;
+                    border-radius: 1.4em;
+                }
+            }
+            
+        }
+    }
+}
