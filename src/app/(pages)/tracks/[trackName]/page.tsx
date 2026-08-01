@@ -37,7 +37,7 @@ export default async function TrackLbPage({
   const trackExists = trackList.some((t) => t.name === trackName);
 
   if (!trackExists) {
-    redirect("/tracks");
+    redirect("/not-found");
   } else {
     trackList.map((track) => {
       if (track.name === trackName) {
