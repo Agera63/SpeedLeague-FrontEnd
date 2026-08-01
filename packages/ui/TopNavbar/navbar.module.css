@@ -102,5 +102,8 @@
         display: block;
     }
 
-
+    .authPlaceholder {
+        width: 17.5vh;
+        height: 40px;
+    }
 }

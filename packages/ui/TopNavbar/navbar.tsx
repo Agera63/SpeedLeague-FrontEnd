@@ -9,18 +9,17 @@ import styles from "./navbar.module.css";
 export default function Navbar({ pageName }: { pageName: string }) {
   const [token, setToken] = useState<string | null>(null);
   const [username, setUsername] = useState<string | null>(null);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
     setToken(localStorage.getItem("token"));
     setUsername(localStorage.getItem("username"));
+    setHasMounted(true);
   }, []);
 
   const onLogout = () => {
-    //Removes the stored information
     localStorage.removeItem("token");
     localStorage.removeItem("username");
-
-    //refreshes the page so the UI can update
     window.location.reload();
   };
 
@@ -31,7 +30,9 @@ export default function Navbar({ pageName }: { pageName: string }) {
         <li className={styles.gameName}>Speed League</li>
         <li>
           <div>
-            {token !== null ? (
+            {!hasMounted ? (
+              <div className={styles.authPlaceholder} />
+            ) : token !== null ? (
               <div className={styles.dropdown}>
                 <button className={styles.loggedUser}>
                   <Image

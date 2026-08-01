@@ -7,17 +7,38 @@ import Link from "next/link";
 import styles from "./trackCards.module.css";
 import { TrackResponseDTO, TrackService } from "../../api";
 
+const SKELETON_COUNT = 6;
+
 export default function TrackCards() {
   const [trackList, setTrackList] = useState<TrackResponseDTO[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function getTracks() {
-      const data = await TrackService.getAllTracks();
-      setTrackList(data);
+      try {
+        const data = await TrackService.getAllTracks();
+        setTrackList(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
     }
 
-    getTracks().catch(console.error);
+    getTracks();
   }, []);
+
+  if (isLoading) {
+    return (
+      <ul className={`${styles.accordion} ${styles.accordionLoading}`}>
+        {Array.from({ length: SKELETON_COUNT }).map((_, i) => (
+          <li key={i} className={styles.skeletonLi}>
+            <span className={styles.cardSkeleton} />
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   return (
     <ul className={styles.accordion}>
