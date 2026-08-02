@@ -33,7 +33,7 @@ export default function TrackLbView({
           <div>
             <p className={styles.locationText}>{selectedTrack.country}</p>
             <Image
-              src={`/svg/${selectedTrack.name}.svg`}
+              src={`/svg/${selectedTrack.name.toLowerCase}.svg`}
               alt="Red arrow"
               width={500}
               height={500}
