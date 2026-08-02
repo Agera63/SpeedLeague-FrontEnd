@@ -43,11 +43,14 @@ export default function LbTable({
     async function getTimes() {
       try {
         // Tries to talk to an API point
-        const res = await fetch("http://localhost:8080/api/Auth/Validate", {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+        const res = await fetch(
+          "https://sl-api-mu.vercel.app/api/Auth/Validate",
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
           },
-        });
+        );
 
         // If that reponse is 401, it means the token is invalid
         if (res.status === 401) {
