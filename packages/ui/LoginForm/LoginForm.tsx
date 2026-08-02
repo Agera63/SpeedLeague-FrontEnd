@@ -18,14 +18,14 @@ export default function LoginForm() {
     password: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
   };
 
-  const submitForm = async (e) => {
+  const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     //check if the username and passowrd field are filled before changing the error
@@ -39,19 +39,21 @@ export default function LoginForm() {
 
       const response: LoginResponseModel = await AuthService.login(form);
 
-      if (!response.accessToken) {
+      if (!response.accessToken || !response.userName) {
         setError("Incorrect username or password!");
-        throw new Error("Login succeeded but no access token was returned");
+        throw new Error(
+          "Login succeeded but accessToken or userName was missing from the response",
+        );
       }
 
       // Store the token so future requests can use it
-      localStorage.setItem("token", response.accessToken!);
-      localStorage.setItem("username", response.userName!);
+      localStorage.setItem("token", response.accessToken);
+      localStorage.setItem("username", response.userName);
 
       //Push back to "main page"
       router.push("/");
-    } catch (error) {
-      console.error("Network or unexpected error:", error);
+    } catch (err) {
+      console.error("Network or unexpected error:", err);
       setError("Network or unexpected error!");
     }
   };
@@ -89,9 +91,11 @@ export default function LoginForm() {
             placeholder="Password"
           />
           {/**Eye field */}
-          <div
+          <button
+            type="button"
             className={styles.iconWrapper}
             onClick={togglePasswordVisibility}
+            aria-label={showPassword ? "Hide password" : "Show password"}
           >
             <Image
               src={
@@ -104,7 +108,7 @@ export default function LoginForm() {
               className={styles.passwordToggleIcon}
               alt="Show password btn"
             />
-          </div>
+          </button>
         </div>
       </div>
       <div className={styles.divSpliting}>
