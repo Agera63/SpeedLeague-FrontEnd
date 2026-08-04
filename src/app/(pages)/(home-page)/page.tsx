@@ -6,14 +6,13 @@ import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const [os, setOs] = useState<"windows" | "mac" | "other">("other");
+  const [os, setOs] = useState<"windows" | "other">("other");
 
   useEffect(() => {
     const ua = navigator.userAgent;
 
     //checks the os of the user
     if (ua.includes("Win")) setOs("windows");
-    if (ua.includes("Mac")) setOs("mac");
   }, []);
 
   return (
@@ -50,15 +49,9 @@ export default function Home() {
               href={
                 os === "windows"
                   ? "https://github.com/Agera63/SpeedLeague-Game/releases/download/v0.1.0-beta.1/SpeedLeague-v0.1.0-beta.1-Windows.zip"
-                  : "https://github.com/Agera63/SpeedLeague-Game/releases/download/v0.1.0-beta.1/SpeedLeague-v0.1.0-beta.1-Mac.zip"
+                  : undefined
               }
-              download={
-                os === "other"
-                  ? undefined
-                  : os === "windows"
-                    ? "SpeedLeague-Windows"
-                    : "SpeedLeague-Mac"
-              }
+              download={os === "other" ? undefined : "SpeedLeague-Windows"}
               aria-disabled={os === "other"}
               onClick={(e) => {
                 if (os === "other") e.preventDefault();
