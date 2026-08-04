@@ -42,3 +42,4 @@ next-env.d.ts
 
 #openapi.file
 openapi.json
+public/game-files/*.zip

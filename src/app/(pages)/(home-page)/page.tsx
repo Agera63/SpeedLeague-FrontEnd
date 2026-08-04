@@ -1,12 +1,21 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-// import tempt from "../../../../public/game-files/testfile.txt";
+import { useState, useEffect } from "react";
 
 import styles from "./page.module.css";
 
 export default function Home() {
+  const [os, setOs] = useState<"windows" | "mac" | "other">("other");
+
+  useEffect(() => {
+    const ua = navigator.userAgent;
+
+    //checks the os of the user
+    if (ua.includes("Win")) setOs("windows");
+    if (ua.includes("Mac")) setOs("mac");
+  }, []);
+
   return (
     <div className={styles.mainHeader}>
       <div className={styles.heroSection}>
@@ -38,8 +47,27 @@ export default function Home() {
             </Link>
             <a
               className={styles.trackBtn}
-              href={"/game-files/FILENAME"}
-              download={"SpeedLeague-Game"}
+              href={
+                os === "windows"
+                  ? "https://github.com/Agera63/SpeedLeague-Game/releases/download/v0.1.0-beta.1/SpeedLeague-v0.1.0-beta.1-Windows.zip"
+                  : "https://github.com/Agera63/SpeedLeague-Game/releases/download/v0.1.0-beta.1/SpeedLeague-v0.1.0-beta.1-Mac.zip"
+              }
+              download={
+                os === "other"
+                  ? undefined
+                  : os === "windows"
+                    ? "SpeedLeague-Windows"
+                    : "SpeedLeague-Mac"
+              }
+              aria-disabled={os === "other"}
+              onClick={(e) => {
+                if (os === "other") e.preventDefault();
+              }}
+              style={
+                os === "other"
+                  ? { pointerEvents: "none", opacity: 0.5 }
+                  : undefined
+              }
             >
               Download
             </a>
