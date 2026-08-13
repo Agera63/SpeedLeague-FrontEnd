@@ -48,7 +48,7 @@ export default function Home() {
               className={styles.trackBtn}
               href={
                 os === "windows"
-                  ? "https://github.com/Agera63/SpeedLeague-Game/releases/download/v0.1.0-beta.1/SpeedLeague-v0.1.0-beta.1-Windows.zip"
+                  ? "https://github.com/Agera63/SpeedLeague-Game/releases/download/v0.2.0-beta1/SpeedLeague-v0.2.0-beta.1.zip"
                   : undefined
               }
               download={os === "other" ? undefined : "SpeedLeague-Windows"}
